@@ -1,0 +1,9 @@
+td.details-control {
+	background: url('../resources/images/details_open.png') no-repeat center center; cursor: pointer;
+}
+tr.shown td.details-control {
+	background: url('../resources/images/details_close.png') no-repeat center center;
+}
+.page-title .title_left {
+	width: 100%;
+}
