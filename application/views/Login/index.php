@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Rompe-Muros</title>
+		<link rel='icon' type='image/jpeg' href="<?php echo base_url('resources/images/site-ico-2.png')?>" />
 		 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 		<link rel="stylesheet" href="<?php echo base_url('resources/bootstrap/dist/css/bootstrap.min.css') ?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/font-awesome/css/font-awesome.min.css') ?>">
