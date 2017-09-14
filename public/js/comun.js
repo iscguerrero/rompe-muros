@@ -20,3 +20,15 @@ $(document).ready(function(){
 		}
 		return numero;
 	}
+$(document).ready(function(){
+	/*************** CONFIGURACION GENERAL DEL COMPORTAMIENTO DE LA VISTA ***************/
+	// Configuracion del tooltip en la vista
+		$('[data-toggle="tooltip"]').tooltip();
+	// Configuracion del modal de mensajes del sistema
+		modalAlerta = $('#modalAlerta').modal({
+			backdrop: 'static',
+			keyboard: false,
+			show: false
+		});
+		msjAlerta = $('#msjAlerta');
+});

@@ -13,12 +13,12 @@
 		<link rel="stylesheet" href="<?php echo base_url('resources/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/toastr/toastr.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/font-awesome/css/font-awesome.min.css')?>">
-		<?php echo $this->section('extra_style')?>
 		<link rel="stylesheet" href="<?php echo base_url('public/css/custom.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('public/css/comun.css')?>">
+		<?php echo $this->section('extra_style')?>
 	</head>
 	<body class="nav-md">
-		<div id="modalAlert" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div id="modalAlerta" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -26,7 +26,7 @@
 						<h4 class="modal-title"><i class="fa fa-gears"></i> MENSAJE DEL SISTEMA</h4>
 					</div>
 					<div class="modal-body">
-						<strong id="msjAlert"></strong>
+						<strong id="msjAlerta"></strong>
 					</div>
 				</div>
 			</div>
@@ -124,8 +124,8 @@
 		<script src="<?php echo base_url('resources/moment/locale/es.js')?>"></script>
 		<script src="<?php echo base_url('resources/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')?>"></script>
 		<script src="<?php echo base_url('resources/toastr/toastr.min.js')?>"></script>
-		<?php echo $this->section('extra_js')?>
 		<script src="<?php echo base_url('/public/js/custom.js')?>"></script>
 		<script src="<?php echo base_url('/public/js/comun.js')?>"></script>
+		<?php echo $this->section('extra_js')?>
 	</body>
 </html>
