@@ -7,7 +7,7 @@ class Administracion extends Base_Controller{
 	function index(){
 		echo $this->templates->render('Administracion/index');
 	}
-	function clientes(){
+	function Clientes(){
 		echo $this->templates->render('Administracion/clientes');
 	}
 }

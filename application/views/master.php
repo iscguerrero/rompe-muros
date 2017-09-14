@@ -14,8 +14,8 @@
 		<link rel="stylesheet" href="<?php echo base_url('resources/toastr/toastr.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/font-awesome/css/font-awesome.min.css')?>">
 		<?php echo $this->section('extra_style')?>
-		<link rel="stylesheet" href="<?php echo base_url('build/css/custom.min.css')?>">
-		<link rel="stylesheet" href="<?php echo base_url('css/comun.css')?>">
+		<link rel="stylesheet" href="<?php echo base_url('public/css/custom.min.css')?>">
+		<link rel="stylesheet" href="<?php echo base_url('public/css/comun.css')?>">
 	</head>
 	<body class="nav-md">
 		<div id="modalAlert" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -67,7 +67,7 @@
 									</li>
 									<li><a><i class="fa fa-cogs"></i> Administración <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="#">Clientes</a></li>
+											<li><a href="<?php echo site_url('Administracion/Clientes') ?>">Clientes</a></li>
 											<li><a href="#">Usuarios</a></li>
 										</ul>
 									</li>
@@ -125,7 +125,7 @@
 		<script src="<?php echo base_url('resources/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')?>"></script>
 		<script src="<?php echo base_url('resources/toastr/toastr.min.js')?>"></script>
 		<?php echo $this->section('extra_js')?>
-		<script src="<?php echo base_url('/build/js/custom.min.js')?>"></script>
-		<script src="<?php echo base_url('js/comun.js')?>"></script>
+		<script src="<?php echo base_url('/public/js/custom.js')?>"></script>
+		<script src="<?php echo base_url('/public/js/comun.js')?>"></script>
 	</body>
 </html>

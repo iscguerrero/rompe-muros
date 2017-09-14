@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="<?php echo base_url('resources/bootstrap/dist/css/bootstrap.min.css') ?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/font-awesome/css/font-awesome.min.css') ?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/form-elements.css') ?>">
-		<link rel="stylesheet" href="<?php echo base_url('css/login.css') ?>">
+		<link rel="stylesheet" href="<?php echo base_url('public/css/login.css') ?>">
 	</head>
 	<body>
 		<div class="top-content">
@@ -71,7 +71,7 @@
 		<script src="<?php echo base_url('resources/jquery/dist/jquery.min.js')?>"></script>
 		<script src="<?php echo base_url('resources/bootstrap/dist/js/bootstrap.min.js')?>"></script>
 		<script src="<?php echo base_url('resources/jquery.backstretch.min.js')?>"></script>
-		<script src="<?php echo base_url('js/login.js')?>"></script>
+		<script src="<?php echo base_url('public/js/login.js')?>"></script>
 		<div class="backstretch" style="background-color: #2A3F54; left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 589px; width: 1349px; z-index: -999999; position: fixed;"><img src="<?php echo base_url('resources/images/login-bg-5.png') ?>" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 1349px; height: 899.333px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -155.167px;"></div>
 	</body>
 </html>
