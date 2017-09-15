@@ -10,10 +10,12 @@ class Base_Controller extends CI_Controller {
 		# Cargamos Helpers basicos
 			$this->load->helper(array('url','form', 'date'));
 		# Cargamos la libreria para la validacion de los formularios
-			$this->load->library(array('form_validation', 'session'));
+			$this->load->library(array('form_validation', 'session', 'encrypt'));
 		# Configuracion inicial del motor de plantillas Plates
 			$this->templates = new League\Plates\Engine(APPPATH . '/views');
 			$this->templates->addFolder('partials', APPPATH . '/views/partials');
+		# Comprobamos que exista una sesion de usuario creada
+			#if($this->session->userdata('logueado') == false) redirect('Login/Home');
 	}
 	# Funcion para formatear la fecha a formato Y-m-d
 	function str_to_date($string){

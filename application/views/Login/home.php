@@ -35,10 +35,10 @@
 							</div>
 						</div>
 						<div class="form-bottom">
-							<form role="form" action="#" method="post" class="login-form">
+							<form role="form" action="Login/Acceder" method="post" class="login-form">
 								<div class="form-group">
-									<label class="sr-only" for="usuario">Username</label>
-									<input type="text" name="usuario" id="usuario" placeholder="Usuario..." class="form-username form-control">
+									<label class="sr-only" for="cve_usuario">Username</label>
+									<input type="text" name="cve_usuario" id="cve_usuario" placeholder="Usuario..." class="form-username form-control">
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="contrasenia">Contraseña</label>
