@@ -14,4 +14,17 @@ $(document).ready(function(){
 			{field: 'correo', title: 'Correo', align: 'center', halign: 'center'}
 		]
 	});
+// Enviamos el formulario de alta de cliente
+	$('#formCliente').submit(function(e){
+		e.preventDefault();
+		response = ajax('../Login/AltaUsuario', $('#formCliente').serialize());
+		modalAlerta.modal('hide');
+		toastr.clear();
+		if(response.bandera == true){
+			$('#modalCliente').modal('hide');
+			toastr.success(response.msj, 'Mensaje del Sistema');
+		} else{
+			toastr.error(response.msj + ' ' + response.error, 'Mensaje del Sistema',  {timeOut: 0});
+		}
+	});
 });

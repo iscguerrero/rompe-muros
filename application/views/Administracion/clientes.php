@@ -10,8 +10,6 @@
 	<button type="button" class="btn btn-success" ><i class="fa fa-times"></i> Suspender</button>
 </div>
 
-
-
 <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog modal-sm" role="document">
 		<div class="modal-content">
@@ -26,12 +24,21 @@
 						<input type="text" class="form-control" name="cve_usuario" id="cve_usuario">
 					</div>
 					<div class="form-group">
+						<label class="control-label" for="contrasenia">Contraseña</label>
+						<input type="password" class="form-control" name="contrasenia" id="contrasenia">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="confirmar_contrasenia">Confirmar Contraseña</label>
+						<input type="password" class="form-control" name="confirmar_contrasenia" id="confirmar_contrasenia">
+					</div>
+					<input type="hidden" name="cve_perfil" id="cve_perfil" value="002">
+					<div class="form-group">
 						<label class="control-label" for="nombre">Nombre</label>
 						<input type="text" class="form-control" name="nombre" id="nombre">
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="correo">Correo</label>
-						<input type="text" class="form-control" name="nombre" id="nombre">
+						<input type="text" class="form-control" name="correo" id="correo">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -39,6 +46,20 @@
 					<button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Guardar</button>
 				</div>
 			</form>
+		</div>
+	</div>
+</div>
+
+<div id="modalAlerta" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title"><i class="fa fa-gears"></i> MENSAJE DEL SISTEMA</h4>
+			</div>
+			<div class="modal-body">
+				<strong id="msjAlerta"></strong>
+			</div>
 		</div>
 	</div>
 </div>

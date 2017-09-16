@@ -18,19 +18,6 @@
 		<?php echo $this->section('extra_style')?>
 	</head>
 	<body class="nav-md">
-		<div id="modalAlerta" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h4 class="modal-title"><i class="fa fa-gears"></i> MENSAJE DEL SISTEMA</h4>
-					</div>
-					<div class="modal-body">
-						<strong id="msjAlerta"></strong>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<div class="container body">
 			<div class="main_container">

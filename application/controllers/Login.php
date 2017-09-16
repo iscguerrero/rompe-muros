@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller{
+
+	# Constructor del Controlador
 	function __construct(){
 		parent::__construct();
 		# Cargamos la base de datos por defecto
@@ -9,51 +11,99 @@ class Login extends CI_Controller{
 			$this->load->helper(array('url','form'));
 		# Cargamos la libreria para la validacion de los formularios
 			$this->load->library(array('form_validation', 'session', 'encrypt'));
+		# Cargamos el modelo del catalogo de usuarios
+			$this->load->model('gl_cat_usuarios');
 	}
-	# Funcion para retornar el login del sistema
-	function Home(){
-		$this->load->view('Login/home');
+
+	# Metodo para retornar la vista del login del sistema
+	public function Home($errors = null){
+		$this->load->view('Login/home', $errors);
 	}
-	# Funcion para obtener comprobar la combinacion de usuario y contraseña del inicio de sesion
-	function Acceder(){
-		if ($this->input->post()) {
+
+	# Metodo para dar de alta un nuevo usuario
+	public function AltaUsuario() {
+		$data = new stdClass();
+		# Validamos los datos del formulario
+		$this->form_validation->set_rules('cve_usuario', 'Usuario', 'trim|required|min_length[4]|is_unique[gl_cat_usuarios.cve_usuario]', array(
+			'required' => 'El campo Usuario es requerido',
+			'min_length' => 'El campo Usuario debe contener al menos cuatro caracteres',
+			'is_unique' => 'Usuario registrado con anterioridad, intenta nuevamente',
+		));
+		$this->form_validation->set_rules('contrasenia', 'Contraseña', 'trim|required|min_length[6]', array(
+			'required' => 'El campo Contraseña es requerido',
+			'min_length' => 'El campo Contraseña debe contener al menos seis caracteres',
+		));
+		$this->form_validation->set_rules('confirmar_contrasenia', 'Confirmar Contraseña', 'trim|required|min_length[6]|matches[contrasenia]', array(
+			'required' => 'El campo Confirmar Contraseña es requerido',
+			'min_length' => 'El campo Confirmar Contraseña debe contener al menos seis caracteres',
+			'matches' => 'El campo Confirmar Contraseña debe coincidir con el campo Contraseña',
+		));
+		$this->form_validation->set_rules('cve_perfil', 'Perfil', 'required', array(
+			'required' => 'El campo Perfil es requerido'
+		));
+		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required', array(
+			'required' => 'El campo Nombre es requerido'
+		));
+		$this->form_validation->set_rules('correo', 'Correo', 'trim|required|valid_email|is_unique[gl_cat_usuarios.correo]', array(
+			'required' => 'El campo Correo es requerido',
+			'valid_email' => 'El correo registrado no cuenta con una estructura válida',
+			'is_unique' => 'El correo proporcionado ya se encuentra registrado en el sistema'
+		));
+		# Retornamos los errrores de validacion en caso de que estos se presente
+		if ($this->form_validation->run() === false) {
+			exit(json_encode(array('bandera'=>false, 'msj'=>'Las validaciones del formulario no se completaron, atiende:', 'error'=>validation_errors())));
+		} else {
+			# Guardamos los parametros de la peticion en variables locales
 			$cve_usuario = $this->input->post('cve_usuario');
 			$contrasenia = $this->input->post('contrasenia');
-			$this->load->model('gl_cat_usuarios');
-			$usuario = $this->gl_cat_usuarios->ComprobarUsuario($cve_usuario, $contrasenia);
-			print_r($usuario);
-			die();
-			if ($usuario) {
-				$data_sesion = array(
-					'cve_usuario' => $usuario->cve_usuario,
-					'nombre' => $usuario->nombre,
-					'cve_perfil' => $usuario->cve_perfil,
-					'logueado' => TRUE
-				);
-				$this->session->set_userdata($data_sesion);
-				redirect('Administracion/Clientes');
+			$cve_perfil = $this->input->post('cve_perfil');
+			$nombre = $this->input->post('nombre');
+			$correo = $this->input->post('correo');
+
+			if ($this->gl_cat_usuarios->altaUsuario($cve_usuario, $contrasenia, $cve_perfil, $nombre, $correo)) {
+				exit(json_encode(array('bandera'=>true, 'msj'=>'Registro creado con éxito')));
 			} else {
-				redirect('');
+				exit(json_encode(array('bandera'=>false, 'msj'=>'Se presento un error al crear el registro')));
 			}
-		} else {
-			redirect('');
 		}
 	}
-	# Funcion para cerrar la sesion del usuario logueado
-	public function cerrar_sesion() {
-		$data_sesion = array(
-			'logueado' => FALSE
-		);
-		$this->session->set_userdata($usuario_data);
-		redirect('Login/Home');
+	# Metodo para loguear el usuario dentro del sistema
+	public function Acceder() {
+		# Validamos la cambinacion de usuario y contraseña de inicio de sesion
+		$this->form_validation->set_rules('cve_usuario', 'Usuario', 'required');
+		$this->form_validation->set_rules('contrasenia', 'Contraseña', 'required');
+		if ($this->form_validation->run() == false) {
+			exit(json_encode(array('bandera'=>false, 'msj'=>'Las validaciones del formulario no se completaron, atiende:', 'error'=>validation_errors())));
+		} else {
+			# Guardamos los parametros de la peticion en variables locales
+			$cve_usuario = $this->input->post('cve_usuario');
+			$contrasenia = $this->input->post('contrasenia');
+			# En caso de que la combinacion sea correcta
+			if ($this->gl_cat_usuarios->resolverLogin($cve_usuario, $contrasenia)) {
+				$usuario = $this->gl_cat_usuarios->obtenerUsuario($cve_usuario);
+				# Seteamos las variables de sesion
+				$sesion = array(
+					'cve_usuario' => $usuario->cve_usuario,
+					'cve_perfil' => $usuario->cve_perfil,
+					'nombre' => $nombre,
+					'correo' => $correo,
+					'logueado' => true
+				);
+				$this->session->set_userdata($sesion);
+				redirect('Administracion/Clientes');
+			} else {
+				redirect('/');
+			}
+		}
 	}
-
-
-
-	function get_algo(){
-		$this->load->model('gl_asignacion_de_permisos');
-		//$result = $this->gl_asignacion_de_permisos->get_rows();
-		$this->gl_asignacion_de_permisos->created_at = 'como estas';
-		exit(json_encode($this->gl_asignacion_de_permisos->created_at));
+	# Metodo para destruir los variables de sesion del usuario logueado
+	public function Salir() {
+		if ($this->session->userdata() && $this->session->userdata('logueado') == true) {
+			$sesion = array('logueado' => false);
+			$this->session->set_userdata($sesion);
+			redirect('/');
+		} else {
+			redirect('/');
+		}
 	}
 }
