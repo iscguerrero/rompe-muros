@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	/*************** CONFIGURACION GENERAL DEL COMPORTAMIENTO DE LA VISTA ***************/
 		toastr.options.closeButton = true;
+		toastr.options.closeHtml = '<button><i class="power-off"></i></button>';
+		toastr.options.preventDuplicates = true;
 	// Configuracion del tooltip en la vista
 		$('[data-toggle="tooltip"]').tooltip();
 	// Configuracion del modal de mensajes del sistema
@@ -42,10 +44,6 @@ var ajax = function(url, str){
 		async: false,
 		cache: false,
 		dataType: 'json',
-		beforeSend: function(){
-			msjAlerta.html('Procesando petición...');
-			modalAlerta.modal('show');
-		},
 		success: function(json){
 			response = json;
 		}

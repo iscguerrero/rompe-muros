@@ -17,7 +17,21 @@ class Login extends CI_Controller{
 
 	# Metodo para retornar la vista del login del sistema
 	public function Home($errors = null){
-		$this->load->view('Login/home', $errors);
+		if ($this->session->userdata() && $this->session->userdata('logueado') == true) {
+			switch ($this->session->userdata('cve_perfil')) {
+				case '001':
+					redirect(site_url('Administracion/Clientes'));
+					break;
+				case '002':
+					redirect(site_url('Clientes/Top5'));
+					break;
+				default:
+					redirect('/');
+					break;
+			}
+		} else{
+			$this->load->view('Login/home', $errors);
+		}
 	}
 
 	# Metodo para dar de alta un nuevo usuario
@@ -82,15 +96,28 @@ class Login extends CI_Controller{
 			if ($this->gl_cat_usuarios->resolverLogin($cve_usuario, $contrasenia)) {
 				$usuario = $this->gl_cat_usuarios->obtenerUsuario($cve_usuario);
 				# Seteamos las variables de sesion
+				$nickname = explode(' ', $usuario->nombre);
+				$nickname = $nickname[0];
 				$sesion = array(
 					'cve_usuario' => $usuario->cve_usuario,
 					'cve_perfil' => $usuario->cve_perfil,
-					'nombre' => $nombre,
-					'correo' => $correo,
+					'nombre' => $usuario->nombre,
+					'correo' => $usuario->correo,
+					'nickname' => $nickname,
 					'logueado' => true
 				);
 				$this->session->set_userdata($sesion);
-				redirect('Administracion/Clientes');
+				switch ($this->session->userdata('cve_perfil')) {
+					case '001':
+						redirect(site_url('Administracion/Clientes'));
+						break;
+					case '002':
+						redirect(site_url('Clientes/Top5'));
+						break;
+					default:
+						redirect('/');
+						break;
+				}
 			} else {
 				redirect('/');
 			}

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Base_Controller extends CI_Controller {
-	public $templates;
+	public $templates, $created_user, $updated_user;
 	public function __construct(){
 		parent::__construct();
 		# Cargamos la base de datos por defecto
@@ -15,7 +15,10 @@ class Base_Controller extends CI_Controller {
 			$this->templates = new League\Plates\Engine(APPPATH . '/views');
 			$this->templates->addFolder('partials', APPPATH . '/views/partials');
 		# Comprobamos que exista una sesion de usuario creada
-			#if($this->session->userdata('logueado') == false) redirect('Login/Home');
+			if($this->session->userdata('logueado') == false) redirect(base_url('/'));
+		# Seteamos la clave de usuario en variables globales
+			$this->created_user = $this->session->userdata() ? $this->session->userdata('cve_usuario') : null;
+			$this->updated_user = $this->session->userdata() ? $this->session->userdata('cve_usuario') : null;
 	}
 	# Funcion para formatear la fecha a formato Y-m-d
 	function str_to_date($string){

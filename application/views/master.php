@@ -34,7 +34,7 @@
 							</div>
 							<div class="profile_info">
 								<span>Bienvenido,</span>
-								<h2>Usuario</h2>
+								<h2><?php echo $_SESSION['nickname'] ?></h2>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -47,14 +47,16 @@
 								<ul class="nav side-menu">
 									<li><a><i class="fa fa-line-chart"></i> Clientes <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="<?php echo site_url('Clientes/calendario_mensual') ?>">Calendario Mensual</a></li>
-											<li><a href="<?php echo site_url('Clientes/estadisticas_mensuales') ?>">Estadísticas Mensuales</a></li>
-											<li><a href="<?php echo site_url('Clientes/estadisticas_anuales') ?>">Estadísticas Anuales</a></li>
+											<li><a href="<?php echo site_url('Clientes/Top5') ?>">Top 5</a></li>
+											<li><a href="<?php echo site_url('Clientes/calendarioMensual') ?>">Calendario Mensual</a></li>
+											<li><a href="<?php echo site_url('Clientes/estadisticasMensuales') ?>">Estadísticas Mensuales</a></li>
+											<li><a href="<?php echo site_url('Clientes/estadisticasAnuales') ?>">Estadísticas Anuales</a></li>
 										</ul>
 									</li>
 									<li><a><i class="fa fa-cogs"></i> Administración <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li><a href="<?php echo site_url('Administracion/Clientes') ?>">Clientes</a></li>
+											<li><a href="<?php echo site_url('Administracion/Top5') ?>">Top 5</a></li>
 											<li><a href="#">Usuarios</a></li>
 										</ul>
 									</li>
@@ -74,13 +76,13 @@
 							<ul class="nav navbar-nav navbar-right">
 								<li class="">
 									<a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-										<img src="<?php echo base_url('resources/images/user.png')?>" alt="">Usuario
+										<img src="<?php echo base_url('resources/images/user.png')?>" alt=""><?php echo $_SESSION['nickname'] ?>
 										<span class=" fa fa-angle-down"></span>
 									</a>
 									<ul class="dropdown-menu dropdown-usermenu pull-right">
 										<li><a href="javascript:;"> Perfil</a></li>
 										<li><a href="javascript:;">Ayuda</a></li>
-										<li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+										<li><a href="<?php echo site_url('Login/Salir') ?>"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
 									</ul>
 								</li>
 							</ul>
