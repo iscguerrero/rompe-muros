@@ -7,7 +7,10 @@
 <div id="toolbar">
 	<button type="button" class="btn btn-success" id="btnAlta"><i class="fa fa-user-plus"></i>Alta</button>
 	<button type="button" class="btn btn-success" id="btnEditar"><i class="fa fa-edit"></i> Editar</button>
-	<button type="button" class="btn btn-success" ><i class="fa fa-times"></i> Suspender</button>
+	<input type="button" class="btn btn-success" id="btnSuspender" value="...">
+	<label>
+		<input type="checkbox" class="js-switch" id="cbxSuspendidos" value='X' /> Incluir Suspendidos
+	</label>
 </div>
 
 <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -15,7 +18,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h4 class="modal-title"><i class="fa users"></i> Cliente</h4>
+				<h4 class="modal-title"><i class="fa fa-gears"></i> Cliente</h4>
 			</div>
 			<form method="POST" id="formCliente">
 				<input type="hidden" name="accion" id="accion" value="">
@@ -67,6 +70,26 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
 					<button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Guardar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="modalSuspender" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title"><i class="fa fa-gears"></i> Cliente</h4>
+			</div>
+			<form method="POST" id="formSuspender">
+				<div class="modal-body">
+					<strong>Estás a punto de <strong id="strongAccion"></strong> el cliente seleccionado ¿Deseas continuar?</strong>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+					<button type="submit" class="btn btn-danger"><i class="fa fa-submit"></i> Sí</button>
 				</div>
 			</form>
 		</div>

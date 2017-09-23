@@ -65,33 +65,33 @@
 <div class="right_col" role="main">
 	<div class="">
 		<div class="clearfix"></div>
-			<div class="x_panel">
-				<div class="x_title">
-					<h2><i class="fa fa-users"></i> Administración de Publicaciones del Top</h2>
-					<ul class="nav navbar-right panel_toolbox">
-						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-						</li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="x_content">
-					<div id="toolbar row">
-						<select class="form-control" id="cve_usuario" style="display: inline; width: 25%">
-							<option value="">Cliente...</option>
-						</select>
-						<select class="form-control" id="tipo" style="display: inline; width: 15%">
-							<option value="">Red Social...</option>
-							<option value="f">Facebook</option>
-							<option value="t">Twitter</option>
-							<option value="i">Instagram</option>
-						</select>
-						<button type="button" class="btn btn-success" id="btnGenerar"><i class="fa fa-send"></i> Generar</button>
-						<button type="button" class="btn btn-success" id="btnAlta"><i class="fa fa-plus-square-o"></i> Alta</button>
-						<button type="button" class="btn btn-success" id="btnEditar"><i class="fa fa-edit"></i> Editar</button>
-					</div>
-					<table id="tpublicaciones" class="jambo_table bulk_action"></table>
-				</div>
+		<div class="x_panel">
+			<div class="x_title">
+				<h2><i class="fa fa-users"></i> Administración de Publicaciones del Top</h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
 			</div>
+			<div class="x_content">
+				<div id="toolbar row">
+					<select class="form-control" id="cve_usuario" style="display: inline; width: 25%">
+						<option value="">Cliente...</option>
+					</select>
+					<select class="form-control" id="tipo" style="display: inline; width: 15%">
+						<option value="">Red Social...</option>
+						<option value="f">Facebook</option>
+						<option value="t">Twitter</option>
+						<option value="i">Instagram</option>
+					</select>
+					<button type="button" class="btn btn-success" id="btnGenerar"><i class="fa fa-send"></i> Generar</button>
+					<button type="button" class="btn btn-success" id="btnAlta"><i class="fa fa-plus-square-o"></i> Alta</button>
+					<button type="button" class="btn btn-success" id="btnEditar"><i class="fa fa-edit"></i> Editar</button>
+				</div>
+				<table id="tpublicaciones" class="jambo_table bulk_action"></table>
+			</div>
+		</div>
 	</div>
 </div>
 <?php $this->stop()?>

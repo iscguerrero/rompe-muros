@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	/*************** CONFIGURACION GENERAL DEL COMPORTAMIENTO DE LA VISTA ***************/
+	// Configuracion de las alertas con toastr
 		toastr.options.closeButton = true;
 		toastr.options.closeHtml = '<button><i class="power-off"></i></button>';
 		toastr.options.preventDuplicates = true;

@@ -10,9 +10,10 @@
 		<link rel="stylesheet" href="<?php echo base_url('resources/bootstrap/dist/css/bootstrap.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/font-awesome/css/font-awesome.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/nprogress/nprogress.css')?>">
-		<link rel="stylesheet" href="<?php echo base_url('resources/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css')?>">
+		<link rel="stylesheet" href="<?php echo base_url('resources/datetimepicker/build/css/bootstrap-datetimepicker.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/toastr/toastr.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('resources/font-awesome/css/font-awesome.min.css')?>">
+		<link rel="stylesheet" href="<?php echo base_url('resources/switchery/dist/switchery.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('public/css/custom.min.css')?>">
 		<link rel="stylesheet" href="<?php echo base_url('public/css/comun.css')?>">
 		<?php echo $this->section('extra_style')?>
@@ -47,16 +48,17 @@
 								<ul class="nav side-menu">
 									<li><a><i class="fa fa-line-chart"></i> Clientes <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="<?php echo site_url('Clientes/Top5') ?>">Top 5</a></li>
-											<li><a href="<?php echo site_url('Clientes/calendarioMensual') ?>">Calendario Mensual</a></li>
-											<li><a href="<?php echo site_url('Clientes/estadisticasMensuales') ?>">Estadísticas Mensuales</a></li>
-											<li><a href="<?php echo site_url('Clientes/estadisticasAnuales') ?>">Estadísticas Anuales</a></li>
+											<li><a href="<?php echo site_url('Inicio/Top5') ?>">Top 5</a></li>
+											<li><a href="<?php echo site_url('Inicio/calendarioMensual') ?>">Calendario Mensual</a></li>
+											<li><a href="<?php echo site_url('Inicio/estadisticasMensuales') ?>">Estadísticas Mensuales</a></li>
+											<li><a href="<?php echo site_url('Inicio/estadisticasAnuales') ?>">Estadísticas Anuales</a></li>
 										</ul>
 									</li>
 									<li><a><i class="fa fa-cogs"></i> Administración <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
 											<li><a href="<?php echo site_url('Administracion/Clientes') ?>">Clientes</a></li>
 											<li><a href="<?php echo site_url('Administracion/Top5') ?>">Top 5</a></li>
+											<li><a href="<?php echo site_url('Administracion/Estadisticas') ?>">Estadísticas</a></li>
 											<li><a href="#">Usuarios</a></li>
 										</ul>
 									</li>
@@ -111,8 +113,28 @@
 		<script src="<?php echo base_url('resources/nprogress/nprogress.js')?>"></script>
 		<script src="<?php echo base_url('resources/moment/min/moment.min.js')?>"></script>
 		<script src="<?php echo base_url('resources/moment/locale/es.js')?>"></script>
-		<script src="<?php echo base_url('resources/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')?>"></script>
+		<script src="<?php echo base_url('resources/datetimepicker/build/js/bootstrap-datetimepicker.min.js')?>"></script>
+		<script src="<?php echo base_url('resources/Chart.js/dist/Chart.min.js')?>"></script>
+
+
+		<!-- jQuery Sparklines -->
+		<script src="<?php echo base_url('resources/jquery-sparkline/dist/jquery.sparkline.min.js')?>"></script>
+		<!-- Flot -->
+		<script src="<?php echo base_url('resources/Flot/jquery.flot.js')?>"></script>
+		<script src="<?php echo base_url('resources/Flot/jquery.flot.pie.js')?>"></script>
+		<script src="<?php echo base_url('resources/Flot/jquery.flot.time.js')?>"></script>
+		<script src="<?php echo base_url('resources/Flot/jquery.flot.stack.js')?>"></script>
+		<script src="<?php echo base_url('resources/Flot/jquery.flot.resize.js')?>"></script>
+		<!-- Flot plugins -->
+		<script src="<?php echo base_url('resources/flot.orderbars/js/jquery.flot.orderBars.js')?>"></script>
+		<script src="<?php echo base_url('resources/flot-spline/js/jquery.flot.spline.min.js')?>"></script>
+		<script src="<?php echo base_url('resources/flot.curvedlines/curvedLines.js')?>"></script>
+
+		<!-- DateJS -->
+		<script src="<?php echo base_url('resources/DateJS/build/date.js')?>"></script>
+
 		<script src="<?php echo base_url('resources/toastr/toastr.min.js')?>"></script>
+		<script src="<?php echo base_url('resources/switchery/dist/switchery.min.js')?>"></script>
 		<script src="<?php echo base_url('/public/js/custom.js')?>"></script>
 		<script src="<?php echo base_url('/public/js/comun.js')?>"></script>
 		<?php echo $this->section('extra_js')?>

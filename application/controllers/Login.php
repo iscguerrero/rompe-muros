@@ -16,27 +16,26 @@ class Login extends CI_Controller{
 	}
 
 	# Metodo para retornar la vista del login del sistema
-	public function Home($errors = null){
+	public function Inicio($errors = null){
 		if ($this->session->userdata() && $this->session->userdata('logueado') == true) {
 			switch ($this->session->userdata('cve_perfil')) {
 				case '001':
 					redirect(site_url('Administracion/Clientes'));
 					break;
 				case '002':
-					redirect(site_url('Clientes/Top5'));
+					redirect(site_url('Inicio/Top5'));
 					break;
 				default:
 					redirect('/');
 					break;
 			}
 		} else{
-			$this->load->view('Login/home', $errors);
+			$this->load->view('Login/inicio', $errors);
 		}
 	}
 
 	# Metodo para dar de alta un nuevo usuario
 	public function AltaUsuario() {
-		$data = new stdClass();
 		# Validamos los datos del formulario
 		$this->form_validation->set_rules('cve_usuario', 'Usuario', 'trim|required|min_length[4]|is_unique[gl_cat_usuarios.cve_usuario]', array(
 			'required' => 'El campo Usuario es requerido',
@@ -112,7 +111,7 @@ class Login extends CI_Controller{
 						redirect(site_url('Administracion/Clientes'));
 						break;
 					case '002':
-						redirect(site_url('Clientes/Top5'));
+						redirect(site_url('Inicio/Top5'));
 						break;
 					default:
 						redirect('/');

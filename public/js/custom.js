@@ -193,7 +193,7 @@ if ($(".progress .progress-bar")[0]) {
 // /Progressbar
 
 // Switchery
-$(document).ready(function() {
+/*$(document).ready(function() {
     if ($(".js-switch")[0]) {
         var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
         elems.forEach(function (html) {
@@ -202,7 +202,7 @@ $(document).ready(function() {
             });
         });
     }
-});
+});*/
 // /Switchery
 
 
@@ -5047,7 +5047,7 @@ if (typeof NProgress != 'undefined') {
 		init_daterangepicker_reservation();
 		init_SmartWizard();
 		init_EasyPieChart();
-		//init_charts();
+		init_charts();
 		init_echarts();
 		init_morris_charts();
 		init_skycons();
