@@ -5,9 +5,11 @@
 <?php $this->start('page')?>
 
 <div id="toolbar">
-	<button type="button" class="btn btn-success" id="btnAlta"><i class="fa fa-user-plus"></i>Alta</button>
-	<button type="button" class="btn btn-success" id="btnEditar"><i class="fa fa-edit"></i> Editar</button>
-	<input type="button" class="btn btn-success" id="btnSuspender" value="...">
+	<div class="btn-group">
+		<button type="button" class="btn btn-success btn-sm" id="btnAlta"><i class="fa fa-user-plus"></i>Alta</button>
+		<button type="button" class="btn btn-success btn-sm" id="btnEditar"><i class="fa fa-edit"></i> Editar</button>
+		<input type="button" class="btn btn-success btn-sm" id="btnSuspender" value="...">
+	</div>
 	<label>
 		<input type="checkbox" class="js-switch" id="cbxSuspendidos" value='X' /> Incluir Suspendidos
 	</label>

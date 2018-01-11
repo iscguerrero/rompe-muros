@@ -23,7 +23,7 @@ class Login extends CI_Controller{
 					redirect(site_url('Administracion/Clientes'));
 					break;
 				case '002':
-					redirect(site_url('Inicio/Top5'));
+					redirect(site_url('Inicio/EstadisticasMensuales'));
 					break;
 				default:
 					redirect('/');
@@ -111,7 +111,7 @@ class Login extends CI_Controller{
 						redirect(site_url('Administracion/Clientes'));
 						break;
 					case '002':
-						redirect(site_url('Inicio/Top5'));
+						redirect(site_url('Inicio/EstadisticasMensuales'));
 						break;
 					default:
 						redirect('/');

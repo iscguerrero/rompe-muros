@@ -46,19 +46,8 @@
 							<div class="menu_section">
 								<h3>Menu principal</h3>
 								<ul class="nav side-menu">
-									<li><a><i class="fa fa-line-chart"></i> Clientes <span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li><a href="<?php echo site_url('Inicio/Top5') ?>">Top 5</a></li>
-											<li><a href="<?php echo site_url('Inicio/estadisticasMensuales') ?>">Estadísticas Mensuales</a></li>
-										</ul>
-									</li>
-									<li><a><i class="fa fa-cogs"></i> Administración <span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li><a href="<?php echo site_url('Administracion/Clientes') ?>">Clientes</a></li>
-											<li><a href="<?php echo site_url('Administracion/Top5') ?>">Top 5</a></li>
-											<li><a href="<?php echo site_url('Administracion/Estadisticas') ?>">Estadísticas</a></li>
-										</ul>
-									</li>
+									<li><a href="<?php echo site_url('Inicio/Top5') ?>"><i class="fa fa-thumbs-up"></i> Top 5</a></li>
+									<li><a href="<?php echo site_url('Inicio/estadisticasMensuales') ?>"><i class="fa fa-line-chart"></i> Estadisticas Mensuales</a></li>
 								</ul>
 							</div>
 						</div>
@@ -112,7 +101,6 @@
 		<script src="<?php echo base_url('resources/moment/locale/es.js')?>"></script>
 		<script src="<?php echo base_url('resources/datetimepicker/build/js/bootstrap-datetimepicker.min.js')?>"></script>
 		<script src="<?php echo base_url('resources/Chart.js/dist/Chart.min.js')?>"></script>
-
 
 		<!-- jQuery Sparklines -->
 		<script src="<?php echo base_url('resources/jquery-sparkline/dist/jquery.sparkline.min.js')?>"></script>

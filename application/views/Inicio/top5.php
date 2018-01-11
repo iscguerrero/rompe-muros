@@ -1,4 +1,4 @@
-<?php $this->layout('master', ['title'=>'rompe-muros::Inicio'])?>
+<?php $this->layout('clientes', ['title'=>'rompe-muros::Inicio'])?>
 <?php $this->start('extra_style')?>
 <?php $this->stop()?>
 <?php $this->start('page')?>
